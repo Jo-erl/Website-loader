@@ -1,0 +1,317 @@
+/*CUSTOM FONTS*/
+@font-face {
+    font-family: "Baron Neue";
+    src: url("fonts/Baron\ Neue.otf") format("opentype");
+    font-weight: 400; /* Regular weight */
+}
+@font-face {
+    font-family: "Baron Neue";
+    src: url("fonts/BaronNeue-Bold.otf") format("opentype");
+    font-weight: 700; /* Bold weight */
+}
+@font-face {
+    font-family: "Baron Neue";
+    src: url("fonts/Baron\ Neue\ Black.otf") format("opentype");
+    font-weight: 900; /* Black weight */
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url("fonts/Gilroy-Regular.ttf") format("truetype");
+    font-weight: 400; /* Regular weight */
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url("fonts/Gilroy-Light.ttf") format("truetype");
+    font-weight: 300; /* Light weight */
+}
+/********************************************************************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/********************************************************************/
+*:focus {
+    outline: none;
+}
+/********************************************************************/
+html {
+    scroll-behavior: smooth;
+}
+/********************************************************************/
+/*SCROLLBAR*/
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+}
+/********************************************************************/
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black;
+    background-color: black;
+}
+/********************************************************************/
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(71, 71, 71);
+}
+/********************************************************************/
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: gray;
+}
+/********************************************************************/
+/*HIGHLIGHTING PAGE CONTENTS*/
+::selection {
+    background: black;
+    color: white;
+}
+::-moz-selection {
+    background: black;
+    color: white;
+}
+/********************************************************************/
+/*LINKS*/
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+/********************************************************************/
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    font-family: "Gilroy", sans-serif;
+    font-weight: 300;
+    color: #e0e0e0;
+    display: flex;         
+    flex-direction: column; 
+}
+/********************************************************************/
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a0a0a;
+    animation: fadeOut 0.5s ease-in-out 3s forwards;
+    z-index: 999;
+}
+/********************************************************************/
+.loader-container {
+    position: relative;
+    font-size: 80px;
+    font-family: "Baron Neue", sans-serif;
+}
+/********************************************************************/
+.background-text {
+    color: #1f1f1f;
+}
+/********************************************************************/
+.foreground-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #b72334;
+    clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+    animation: reveal 2s ease-in-out infinite;
+}
+/********************************************************************/
+.main-content {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 3.5s forwards;
+    padding: 2rem;
+    max-width: 90%;
+    margin: 0 auto;
+    flex: 1;
+}
+/********************************************************************/
+.nav {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1f1f1f;
+    font-family: "Baron Neue", sans-serif;
+}
+/********************************************************************/
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+/********************************************************************/
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+/********************************************************************/
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+/********************************************************************/
+.hero p {
+    color: #464646;
+}
+/********************************************************************/
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 1rem;
+    font-family: "Baron Neue", sans-serif;
+}
+/********************************************************************/
+.cards h3 {
+    font-family: "Baron Neue", sans-serif;
+    margin-bottom: 10px;
+}
+/********************************************************************/
+.cards p {
+    font-weight: lighter;
+    color: #6d6d6d;
+}
+/********************************************************************/
+.paragraph {
+    font-weight: lighter;
+}
+/********************************************************************/
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+/********************************************************************/
+.card {
+    background-color: #1f1f1f;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+/********************************************************************/
+.card:hover {
+    transform: translateY(-5px);
+}
+/********************************************************************/
+@keyframes reveal {
+    0% {
+        clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+    }
+    50% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    }
+}
+/********************************************************************/
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/********************************************************************/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/********************************************************************/
+.footer {
+    margin-top: auto;
+    background: #111111;
+    padding: 4rem 2rem 2rem 2rem;
+    border-top: 1px solid #1f1f1f;
+    opacity: 0;                                    
+    animation: fadeIn 1s ease-in-out 3.5s forwards; 
+}
+/********************************************************************/
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+  }
+/********************************************************************/
+  .footer-section h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+/********************************************************************/
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+/********************************************************************/
+  .footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+/********************************************************************/
+  .footer-links a:hover {
+    color: #fff;
+  }
+/********************************************************************/
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #1f1f1f;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+/********************************************************************/
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+/********************************************************************/
+  .social-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+/********************************************************************/
+  .social-links a:hover {
+    color: #fff;
+  }
+/********************************************************************/
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+/********************************************************************/
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #888;
+  }
+/********************************************************************/
+  @media (max-width: 768px) {
+    .footer {
+      padding: 3rem 1.5rem 1.5rem 1.5rem;
+    }
+/********************************************************************/
+    .footer-content {
+      gap: 2rem;
+    }
+  }
+  /********************************************************************/
